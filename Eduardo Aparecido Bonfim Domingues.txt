@@ -1,0 +1,205 @@
+public class Exercicio_1 {
+    public static void main(String[] args) {
+        
+        int contador = 100;
+
+        
+        while (contador <= 200) {
+            System.out.println(contador);
+            contador++; 
+        }
+    }
+}
+
+
+//----------------------------------------------------
+
+import java.util.Scanner;
+
+public class Exercicio_2 {
+    public static void main(String[] args) {
+        Scanner separador = new Scanner(System.in);
+        
+        int pares = 0;
+        int impares = 0;
+
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Digite um número inteiro: ");
+            int numero = separador.nextInt();
+            
+            
+            if (numero % 2 == 0) {
+                pares++;
+            } else {
+                impares++;
+            }
+        }
+        
+        
+        System.out.println("Quantidade de números pares: " + pares);
+        System.out.println("Quantidade de números ímpares: " + impares);
+        
+        separador.close(); 
+    }
+}
+
+//------------------------------------------------------------------------------------
+
+import java.util.Scanner;
+
+public class Exercicio_3 {
+    public static void main(String[] args) {
+        Scanner sequencial = new Scanner(System.in);
+
+        System.out.print("Digite um número inteiro: ");
+        int numero = sequencial.nextInt();
+
+        int valor = 1;
+
+        while (valor <= numero) {
+            System.out.print(valor + " ");
+            valor *= 2;
+        }
+        
+        sequencial.close();
+    }
+}
+
+//------------------------------------------------------------------------------------
+
+
+public class Exercicio_4 {
+    public static void main(String[] args) {
+        int numero = 10;  
+
+        while (numero <= 20) {
+            double metade = numero / 2.0; 
+            System.out.println("A metade de " + numero + " é: " + metade);
+            numero++; 
+        }
+    }
+}
+
+
+//------------------------------------------------------------------------------------
+
+
+public class Exercicio_5 {
+    public static void main(String[] args) {
+        int numero = 5;
+        int i = 1; 
+
+        while (i <= 10) {
+            int resultado = numero * i;
+            System.out.println(numero + " x " + i + " = " + resultado);
+            i++; 
+        }
+    }
+}
+
+
+//------------------------------------------------------------------------------------
+
+//Não consegui resolver sozinho esse exercicio e tive que pedir ajuda,mas foi atras de descobrir 
+//O que siginificava "integer.MAX_VALUE"
+
+import java.util.Scanner;
+
+public class Exercicio_6 {
+    public static void main(String[] args) {
+        Scanner Leitor = new Scanner(System.in);
+        int contador = 0;
+        int menorNumero = Integer.MAX_VALUE; 
+
+        while (contador < 10) {
+            System.out.print("Digite um número inteiro e positivo: ");
+            int numero = Leitor.nextInt();
+
+            if (numero > 0) {
+                if (numero < menorNumero) {
+                    menorNumero = numero; 
+                }
+                contador++; 
+            } else {
+                System.out.println("Por favor, insira um número positivo.");
+            }
+        }
+
+        System.out.println("O menor número digitado foi: " + menorNumero);
+        
+        Leitor.close();
+    }
+}
+
+//------------------------------------------------------------------------------------------
+
+//Procurei saber o que deu de errado para a função %.2f%n não ter funcionado, se puder me ajudar depois eu agredeço.
+
+
+import java.util.Scanner;
+
+public class Exercicio_7 {
+    public static void main(String[] args) {
+        Scanner calculos = new Scanner(System.in);
+        int contador = 0;
+        int Pessoas = 0;
+
+        while (contador < 10) {
+
+            System.out.print("Digite a altura da pessoa (em metros): ");
+            double altura = calculos.nextDouble();
+
+            System.out.print("Digite o peso da pessoa (em kg): ");
+            double peso = calculos.nextDouble();
+
+            double imc = peso / (altura * altura);
+
+            if (imc >= 18.5 && imc <= 24.9) {
+                Pessoas++;  
+            }
+
+            System.out.println("IMC da pessoa " + (contador + 1) + ": " + imc);
+            
+            contador++; 
+        }
+
+        System.out.printf("Número de pessoas com IMC entre 18,5 e 24,9: %.2f%n ", Pessoas);
+        
+    }
+}
+
+//------------------------------------------------------------------------------------------
+
+
+import java.util.Scanner;
+
+public class Exercicio_8 {
+    public static void main(String[] args) {
+        Scanner notas = new Scanner(System.in);
+        int NumAlunos = 5; 
+
+        for (int i = 1; i <= NumAlunos; i++) {
+            double nota1, nota2, media;
+
+            do {
+                System.out.print("Digite a primeira nota do aluno  " + i + " : ");
+                nota1 = notas.nextDouble();
+                if (nota1 < 0 || nota1 > 10) {
+                    System.out.println("Nota inválida! A nota deve estar entre 0 e 10.");
+                }
+            } while (nota1 < 0 || nota1 > 10);
+
+            do {
+                System.out.print("Digite a segunda nota do aluno  " + i + " : ");
+                nota2 = notas.nextDouble();
+                if (nota2 < 0 || nota2 > 10) {
+                    System.out.println("Nota inválida! A nota deve estar entre 0 e 10.");
+                }
+            } while (nota2 < 0 || nota2 > 10);
+
+            media = (nota1 + nota2) / 2;
+
+            System.out.println("A média do aluno é: " + media);
+        }
+    }
+}
